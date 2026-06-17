@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vendor Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Vendor Dashboard</h1>
+
+<input type="text" id="productName" placeholder="Product Name">
+
+<input type="number" id="productPrice" placeholder="Price">
+
+<button onclick="addProduct()">
+Add Product
+</button>
+
+<h2>Products</h2>
+
+<div id="vendorProducts"></div>
+
+<script>
+
+let products =
+JSON.parse(localStorage.getItem("products"))
+|| [];
+
+function addProduct(){
+
+let name =
+document.getElementById("productName").value;
+
+let price =
+document.getElementById("productPrice").value;
+
+products.push({
+name:name,
+price:price
+});
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+showProducts();
+
+}
+
+function showProducts(){
+
+let output="";
+
+products.forEach(product=>{
+
+output += `
+<p>
+${product.name} - ₹${product.price}
+</p>
+`;
+
+});
+
+document.getElementById(
+"vendorProducts"
+).innerHTML = output;
+
+}
+
+showProducts();
+
+</script>
+
+</body>
+</html>

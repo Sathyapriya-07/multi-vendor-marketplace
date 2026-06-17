@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Admin Dashboard</h1>
+
+<button onclick="showProducts()">
+View All Products
+</button>
+
+<div id="allProducts"></div>
+
+<script>
+
+function showProducts(){
+
+let products =
+JSON.parse(localStorage.getItem("products"))
+|| [];
+
+let output="<h2>All Products</h2>";
+
+products.forEach(product=>{
+
+output += `
+<p>
+${product.name} - ₹${product.price}
+</p>
+`;
+
+});
+
+document.getElementById(
+"allProducts"
+).innerHTML = output;
+
+}
+
+</script>
+
+</body>
+</html>
