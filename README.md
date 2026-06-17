@@ -14,3 +14,5 @@ A simple marketplace application built using HTML, CSS, and JavaScript.
 - HTML
 - CSS
 - JavaScript
+## Live Demo
+https://sathyapriya-07.github.io/multi-vendor-marketplace/
